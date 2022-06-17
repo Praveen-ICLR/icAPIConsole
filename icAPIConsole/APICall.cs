@@ -119,7 +119,7 @@ namespace icAPIConsole
 
                    if (CAMethod == "B")
                    {
-                       Console.WriteLine("Under Process");
+                       MainAddCA(args).GetAwaiter().GetResult();
                        Console.ReadLine();
 
                    }
@@ -130,8 +130,9 @@ namespace icAPIConsole
                    }
                    else if (CAMethod == "C")
                    {
-                       Console.WriteLine("Under Process");
-                   }
+                       MainUpdateCA(args).GetAwaiter().GetResult();
+                       Console.ReadLine();
+                }
                    else
                    {
                        Console.WriteLine("Select Right option");
@@ -214,6 +215,20 @@ namespace icAPIConsole
         {
 
             await CustomerAccountAPIEndPoints.GetCustomerAccounts();
+        }
+
+           //Customer Account Add API Function
+        static async Task MainAddCA(string[] args)
+        {
+
+            await CustomerAccountAPIEndPoints.AddCustomerAccount();
+        }
+
+        //Customer Account Update API Function
+        static async Task MainUpdateCA(string[] args)
+        {
+
+            await CustomerAccountAPIEndPoints.UpdateCustomerAccount();
         }
 
 

@@ -24,6 +24,14 @@ namespace icAPIConsole.Core
 
         }
 
+
+        public DateTime ConvertStringtoDT(String dateInput)
+        {
+            var parsedDate = DateTime.Parse(dateInput);
+
+            return parsedDate;
+        }
+
       
     }
 }
