@@ -24,6 +24,39 @@ namespace icAPIConsole.Core
 
         }
 
+       public Decimal? ParseNullableDecimal(String value)
+        {
+            if(string.IsNullOrEmpty(value))
+                return null;
+
+            return Decimal.Parse(value);
+        }
+
+        public Int32? ParseNullableInt(String value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            return Int32.Parse(value);
+        }
+
+        public Byte? ParseNullableByte(String value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            return Byte.Parse(value);
+        }
+
+        public DateTime? ParseNullableDateTime(String value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            return DateTime.Parse(value);
+        }
+
+
 
         public DateTime ConvertStringtoDT(String dateInput)
         {

@@ -25,7 +25,6 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trade Number ");
                 Console.Write("> ");
                 String? trno = Console.ReadLine();
-                TCrequest.tr_no = Convert.ToDecimal(trno);
                 Console.WriteLine("Enter the System Date");
                 Console.Write("> ");
                 TCrequest.system_dt = Console.ReadLine();
@@ -135,7 +134,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trade Number");
                 Console.Write("> ");
                 String? trno = Console.ReadLine();
-                transactionGetRequest.tr_no = Convert.ToDecimal(trno);
+                transactionGetRequest.tr_no = config.ParseNullableDecimal(trno);
 
                 Console.WriteLine("Enter the Type List");
                 Console.Write("> ");
@@ -168,17 +167,17 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Quantity");
                 Console.Write("> ");
                 String? quantity = Console.ReadLine();
-                transactionGetRequest.qty = Convert.ToDecimal(quantity);
+                transactionGetRequest.qty = config.ParseNullableDecimal(quantity);
 
                 Console.WriteLine("Enter the Price");
                 Console.Write("> ");
                 String? pric = Console.ReadLine();
-                transactionGetRequest.price = Convert.ToDecimal(pric);
+                transactionGetRequest.price = config.ParseNullableDecimal(pric);
 
                 Console.WriteLine("Enter the Amount");
                 Console.Write("> ");
                 String? amt = Console.ReadLine();
-                transactionGetRequest.n_amt = Convert.ToDecimal(amt);
+                transactionGetRequest.n_amt = config.ParseNullableDecimal(amt);
 
                 Console.WriteLine("Enter the Contra Code");
                 Console.Write("> ");
@@ -285,7 +284,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the batch number");
                 Console.Write("> ");
                 String? bno = Console.ReadLine();
-                transactionGetRequest.batchno = Convert.ToInt32(bno);
+                transactionGetRequest.batchno = config.ParseNullableInt(bno);
 
                 Console.WriteLine("Enter the w8w9");
                 Console.Write("> ");

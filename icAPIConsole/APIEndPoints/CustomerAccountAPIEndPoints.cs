@@ -182,7 +182,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the W8 date");
                 Console.Write("> ");
                 String? SDT = Console.ReadLine();
-                customerAccountLoadRequest.w8_dt = config.ConvertStringtoDT(SDT);
+                customerAccountLoadRequest.w8_dt = config.ParseNullableDateTime(SDT);
 
                 Console.WriteLine("Enter the Employee");
                 Console.Write("> ");
@@ -199,12 +199,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter Number of Dependants ");
                 Console.Write("> ");
                 String? dependants = Console.ReadLine();
-                customerAccountLoadRequest.dependants = Convert.ToByte(dependants);
+                customerAccountLoadRequest.dependants = config.ParseNullableByte(dependants);
 
                 Console.WriteLine("Enter the Date of Birth");
                 Console.Write("> ");
                 String? DOBS = Console.ReadLine();
-                customerAccountLoadRequest.dob = config.ConvertStringtoDT(DOBS); 
+                customerAccountLoadRequest.dob = config.ParseNullableDateTime(DOBS); 
 
                 Console.WriteLine("Enter the Nasd of Employee");
                 Console.Write("> ");
@@ -225,12 +225,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Start Date");
                 Console.Write("> ");
                 String? StDt = Console.ReadLine();
-                customerAccountLoadRequest.stat_st_dt = config.ConvertStringtoDT(StDt);
+                customerAccountLoadRequest.stat_st_dt = config.ParseNullableDateTime(StDt);
 
                 Console.WriteLine("Enter the End Date");
                 Console.Write("> ");
                 String? EtDt = Console.ReadLine();
-                customerAccountLoadRequest.stat_en_dt = config.ConvertStringtoDT(EtDt);
+                customerAccountLoadRequest.stat_en_dt = config.ParseNullableDateTime(EtDt);
 
                 Console.WriteLine("Enter the INV objective");
                 Console.Write("> ");
@@ -251,7 +251,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Tax Bracket");
                 Console.Write("> ");
                 String? TBS = Console.ReadLine();
-                customerAccountLoadRequest.tax_bracket = Convert.ToByte(TBS);
+                customerAccountLoadRequest.tax_bracket = config.ParseNullableByte(TBS);
 
                 Console.WriteLine("Enter the Stock Level");
                 Console.Write("> ");
@@ -260,7 +260,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Stock Year");
                 Console.Write("> ");
                 String? STYS = Console.ReadLine();
-                customerAccountLoadRequest.years_stocks = Convert.ToByte(STYS);
+                customerAccountLoadRequest.years_stocks = config.ParseNullableByte(STYS);
 
                 Console.WriteLine("Enter the Option Level");
                 Console.Write("> ");
@@ -269,7 +269,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Years of Option");
                 Console.Write("> ");
                 String? YOS = Console.ReadLine();
-                customerAccountLoadRequest.years_options= Convert.ToByte(YOS);
+                customerAccountLoadRequest.years_options= config.ParseNullableByte(YOS);
 
                 Console.WriteLine("Enter the Account of the firms");
                 Console.Write("> ");
@@ -473,12 +473,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Credit Adjustment");
                 Console.Write("> ");
                 String? CAS = Console.ReadLine();
-                customerAccountLoadRequest.credit_adj = Convert.ToDecimal(CAS);
+                customerAccountLoadRequest.credit_adj = config.ParseNullableDecimal(CAS);
 
                 Console.WriteLine("Enter the Debit Adjustment");
                 Console.Write("> ");
                 String? DAS = Console.ReadLine();
-                customerAccountLoadRequest.debit_adj = Convert.ToDecimal(DAS);
+                customerAccountLoadRequest.debit_adj = config.ParseNullableDecimal(DAS);
 
                 Console.WriteLine("Enter the Joint Name");
                 Console.Write("> ");
@@ -507,7 +507,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Joint MNR DOB");
                 Console.Write("> ");
                 String? JTDOB = Console.ReadLine(); 
-                customerAccountLoadRequest.jt_mnr_dob = config.ConvertStringtoDT(JTDOB);
+                customerAccountLoadRequest.jt_mnr_dob = config.ParseNullableDateTime(JTDOB);
 
                 Console.WriteLine("Enter the Joint MNR Citizen");
                 Console.Write("> ");
@@ -592,17 +592,17 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Annual Income");
                 Console.Write("> ");
                 String? AIS = Console.ReadLine();   
-                customerAccountLoadRequest.annual_inc = Convert.ToInt32(AIS);
+                customerAccountLoadRequest.annual_inc = config.ParseNullableInt(AIS);
 
                 Console.WriteLine("Enter the Net Worth");
                 Console.Write("> ");
                 String? NWS = Console.ReadLine();
-                customerAccountLoadRequest.net_worth = Convert.ToInt32(NWS);
+                customerAccountLoadRequest.net_worth = config.ParseNullableInt(NWS);
 
                 Console.WriteLine("Enter the Liquid Net worth");
                 Console.Write("> ");
                 String? LNWS = Console.ReadLine();
-                customerAccountLoadRequest.net_worth_liq = Convert.ToInt32(LNWS);
+                customerAccountLoadRequest.net_worth_liq = config.ParseNullableInt(LNWS);
 
 
                 Console.WriteLine("Enter the Post pl");
@@ -616,13 +616,13 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Cr_int Rate");
                 Console.Write("> ");
                 String? crintrates = Console.ReadLine();
-                customerAccountLoadRequest.cr_int_rate = Convert.ToDecimal(crintrates);
+                customerAccountLoadRequest.cr_int_rate = config.ParseNullableDecimal(crintrates);
 
 
                 Console.WriteLine("Enter the DB_int Rate");
                 Console.Write("> ");
                 String? dbintrates = Console.ReadLine();
-                customerAccountLoadRequest.db_int_rate = Convert.ToDecimal(dbintrates);
+                customerAccountLoadRequest.db_int_rate = config.ParseNullableDecimal(dbintrates);
 
                 Console.WriteLine("Enter the Tefra");
                 Console.Write("> ");
@@ -631,12 +631,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Dtbp Ratio");
                 Console.Write("> ");
                 String? dtbps = Console.ReadLine();
-                customerAccountLoadRequest.dtbp_ratio = Convert.ToDecimal(dtbps);
+                customerAccountLoadRequest.dtbp_ratio = config.ParseNullableDecimal(dtbps);
 
                 Console.WriteLine("Enter the PM Dtbp Ratio");
                 Console.Write("> ");
                 String? PMdtbps = Console.ReadLine();
-                customerAccountLoadRequest.pm_dtbp_ratio = Convert.ToDecimal(PMdtbps);
+                customerAccountLoadRequest.pm_dtbp_ratio = config.ParseNullableDecimal(PMdtbps);
 
                 Console.WriteLine("Enter the Option level");
                 Console.Write("> ");
@@ -645,7 +645,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Start date");
                 Console.Write("> ");
                 String? StartDateS = Console.ReadLine();
-                customerAccountLoadRequest.start_dt = config.ConvertStringtoDT(StartDateS);
+                customerAccountLoadRequest.start_dt = config.ParseNullableDateTime(StartDateS);
 
                 Console.WriteLine("Enter the OPT Designator");
                 Console.Write("> ");
@@ -670,32 +670,32 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Fed_l_rate");
                 Console.Write("> ");
                 String? fedlrates = Console.ReadLine();
-                customerAccountLoadRequest.fed_l_rate = Convert.ToDecimal(fedlrates);
+                customerAccountLoadRequest.fed_l_rate = config.ParseNullableDecimal(fedlrates);
 
                 Console.WriteLine("Enter the Fed_s_rate");
                 Console.Write("> ");
                 String? fedsrates = Console.ReadLine();
-                customerAccountLoadRequest.fed_s_rate = Convert.ToDecimal(fedsrates);
+                customerAccountLoadRequest.fed_s_rate = config.ParseNullableDecimal(fedsrates);
 
                 Console.WriteLine("Enter the Exchange l rate");
                 Console.Write("> ");
                 String? exclrate = Console.ReadLine();
-                customerAccountLoadRequest.exch_l_rate = Convert.ToDecimal(exclrate);
+                customerAccountLoadRequest.exch_l_rate = config.ParseNullableDecimal(exclrate);
 
                 Console.WriteLine("Enter the Exchange S rate");
                 Console.Write("> ");
                 String? excsrate = Console.ReadLine();
-                customerAccountLoadRequest.exch_s_rate = Convert.ToDecimal(excsrate);
+                customerAccountLoadRequest.exch_s_rate = config.ParseNullableDecimal(excsrate);
 
                 Console.WriteLine("Enter the House l rate");
                 Console.Write("> ");
                 String? houslrate = Console.ReadLine();
-                customerAccountLoadRequest.house_l_rate = Convert.ToDecimal(houslrate);
+                customerAccountLoadRequest.house_l_rate = config.ParseNullableDecimal(houslrate);
 
                 Console.WriteLine("Enter the House S rate");
                 Console.Write("> ");
                 String? houssrate = Console.ReadLine();
-                customerAccountLoadRequest.house_s_rate = Convert.ToDecimal(houssrate);
+                customerAccountLoadRequest.house_s_rate = config.ParseNullableDecimal(houssrate);
 
                 Console.WriteLine("Enter the Statement Mail");
                 Console.Write("> ");
@@ -704,7 +704,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Statement Copy");
                 Console.Write("> ");
                 String? StCS = Console.ReadLine();
-                customerAccountLoadRequest.stmnt_copy = Convert.ToByte(StCS);
+                customerAccountLoadRequest.stmnt_copy = config.ParseNullableByte(StCS);
 
                 Console.WriteLine("Enter the Confirm MAil");
                 Console.Write("> ");
@@ -713,7 +713,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Confirm Copy");
                 Console.Write("> ");
                 String? ConCS = Console.ReadLine();
-                customerAccountLoadRequest.cnfrm_copy = Convert.ToByte(ConCS);
+                customerAccountLoadRequest.cnfrm_copy = config.ParseNullableByte(ConCS);
 
                 Console.WriteLine("Enter the Proxy OPTOUT");
                 Console.Write("> ");
@@ -742,7 +742,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trading Limit");
                 Console.Write("> ");
                 String? tls = Console.ReadLine();
-                customerAccountLoadRequest.trading_limit = Convert.ToDecimal(tls);
+                customerAccountLoadRequest.trading_limit = config.ParseNullableDecimal(tls);
 
                 Console.WriteLine("Enter the Rule 2111");
                 Console.Write("> ");
@@ -759,7 +759,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Fixed Income Years");
                 Console.Write("> ");
                 String? FIYS = Console.ReadLine();
-                customerAccountLoadRequest.years_fixedinc = Convert.ToByte(FIYS);
+                customerAccountLoadRequest.years_fixedinc = config.ParseNullableByte(FIYS);
 
                 Console.WriteLine("Enter the Time Horizon");
                 Console.Write("> ");
@@ -780,67 +780,67 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Ho min equity");
                 Console.Write("> ");
                 String? HMES = Console.ReadLine();
-                customerAccountLoadRequest.ho_min_equity = Convert.ToDecimal(HMES);
+                customerAccountLoadRequest.ho_min_equity = config.ParseNullableDecimal(HMES);
 
                 Console.WriteLine("Enter the Tax Blend rate");
                 Console.Write("> ");
                 String? TBRS = Console.ReadLine();
-                customerAccountLoadRequest.tax_blend_rate = Convert.ToDecimal(TBRS);
+                customerAccountLoadRequest.tax_blend_rate = config.ParseNullableDecimal(TBRS);
 
                 Console.WriteLine("Enter the Deceased date");
                 Console.Write("> ");
                 String? decDateS = Console.ReadLine();
-                customerAccountLoadRequest.deceased_dt = config.ConvertStringtoDT(decDateS);
+                customerAccountLoadRequest.deceased_dt = config.ParseNullableDateTime(decDateS);
 
                 Console.WriteLine("Enter the Account Close date");
                 Console.Write("> ");
                 String? ACDateS = Console.ReadLine();
-                customerAccountLoadRequest.acct_close_dt = config.ConvertStringtoDT(ACDateS);
+                customerAccountLoadRequest.acct_close_dt = config.ParseNullableDateTime(ACDateS);
 
                 Console.WriteLine("Enter the fi_fed_l_rate");
                 Console.Write("> ");
                 String? fifedls = Console.ReadLine();
-                customerAccountLoadRequest.fi_fed_l_rate = Convert.ToDecimal(fifedls);
+                customerAccountLoadRequest.fi_fed_l_rate = config.ParseNullableDecimal(fifedls);
 
                 Console.WriteLine("Enter the fi_fed_s_rate");
                 Console.Write("> ");
                 String? fifedlss = Console.ReadLine();
-                customerAccountLoadRequest.fi_fed_s_rate = Convert.ToDecimal(fifedlss);
+                customerAccountLoadRequest.fi_fed_s_rate = config.ParseNullableDecimal(fifedlss);
 
                 Console.WriteLine("Enter the fi_exch_l_rate");
                 Console.Write("> ");
                 String? fiexhls = Console.ReadLine();
-                customerAccountLoadRequest.fi_exch_l_rate = Convert.ToDecimal(fiexhls);
+                customerAccountLoadRequest.fi_exch_l_rate = config.ParseNullableDecimal(fiexhls);
 
                 Console.WriteLine("Enter the fi_exch_s_rate");
                 Console.Write("> ");
                 String? fiexhss = Console.ReadLine();
-                customerAccountLoadRequest.fi_exch_s_rate = Convert.ToDecimal(fiexhss);
+                customerAccountLoadRequest.fi_exch_s_rate = config.ParseNullableDecimal(fiexhss);
 
                 Console.WriteLine("Enter the fi_house_l_rate");
                 Console.Write("> ");
                 String? fhols= Console.ReadLine();
-                customerAccountLoadRequest.fi_house_l_rate = Convert.ToDecimal(fhols);
+                customerAccountLoadRequest.fi_house_l_rate = config.ParseNullableDecimal(fhols);
 
                 Console.WriteLine("Enter the fi_house_s_rate");
                 Console.Write("> ");
                 String? fhsr = Console.ReadLine();
-                customerAccountLoadRequest.fi_house_s_rate = Convert.ToDecimal(fhsr);
+                customerAccountLoadRequest.fi_house_s_rate = config.ParseNullableDecimal(fhsr);
 
                 Console.WriteLine("Enter the ira_distrb_amt");
                 Console.Write("> ");
                 String? irdias = Console.ReadLine();
-                customerAccountLoadRequest.ira_distrb_amt = Convert.ToDecimal(irdias);
+                customerAccountLoadRequest.ira_distrb_amt = config.ParseNullableDecimal(irdias);
 
                 Console.WriteLine("Enter the ira_fed_tax");
                 Console.Write("> ");
                 String? ifedts = Console.ReadLine();
-                customerAccountLoadRequest.ira_fed_tax = Convert.ToDecimal(ifedts);
+                customerAccountLoadRequest.ira_fed_tax = config.ParseNullableDecimal(ifedts);
 
                 Console.WriteLine("Enter the ira_state_tax");
                 Console.Write("> ");
                 String? istatts = Console.ReadLine();
-                customerAccountLoadRequest.ira_state_tax = Convert.ToDecimal(istatts);
+                customerAccountLoadRequest.ira_state_tax = config.ParseNullableDecimal(istatts);
 
 
 
@@ -927,18 +927,18 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trust date");
                 Console.Write("> ");
                 String? trustDateS = Console.ReadLine();
-                customerAccountLoadRequest.trust_dt = config.ConvertStringtoDT(trustDateS);
+                customerAccountLoadRequest.trust_dt = config.ParseNullableDateTime(trustDateS);
 
 
                 Console.WriteLine("Enter the Trust Net Income");
                 Console.Write("> ");
                 String? tnis = Console.ReadLine();
-                customerAccountLoadRequest.trust_net_inc = Convert.ToInt32(tnis);
+                customerAccountLoadRequest.trust_net_inc = config.ParseNullableInt(tnis);
 
                 Console.WriteLine("Enter the Trust liquid Net Worth");
                 Console.Write("> ");
                 String? tlNWS = Console.ReadLine();
-                customerAccountLoadRequest.trust_net_liq = Convert.ToInt32(tlNWS);
+                customerAccountLoadRequest.trust_net_liq = config.ParseNullableInt(tlNWS);
 
                 Console.WriteLine("Enter the oth_brk_emp");
                 Console.Write("> ");
@@ -955,7 +955,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Override Rate");
                 Console.Write("> ");
                 String? ORRS = Console.ReadLine();
-                customerAccountLoadRequest.override_rate = Convert.ToDecimal(tlNWS);
+                customerAccountLoadRequest.override_rate = config.ParseNullableDecimal(tlNWS);
 
 
                 Console.WriteLine("Enter the rpt_8966");
@@ -1005,7 +1005,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the firpta_blend_rate");
                 Console.Write("> ");
                 String? FBRS = Console.ReadLine();
-                customerAccountLoadRequest.firpta_blend_rate = Convert.ToDecimal(FBRS);
+                customerAccountLoadRequest.firpta_blend_rate = config.ParseNullableDecimal(FBRS);
 
                 Console.WriteLine("Enter the add4");
                 Console.Write("> ");
@@ -1231,7 +1231,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the W8 date");
                 Console.Write("> ");
                 String? SDT = Console.ReadLine();
-                customerAccountLoadRequest.w8_dt = config.ConvertStringtoDT(SDT);
+                customerAccountLoadRequest.w8_dt = config.ParseNullableDateTime(SDT);
 
                 Console.WriteLine("Enter the Employee");
                 Console.Write("> ");
@@ -1248,12 +1248,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter Number of Dependants ");
                 Console.Write("> ");
                 String? dependants = Console.ReadLine();
-                customerAccountLoadRequest.dependants = Convert.ToByte(dependants);
+                customerAccountLoadRequest.dependants = config.ParseNullableByte(dependants);
 
                 Console.WriteLine("Enter the Date of Birth");
                 Console.Write("> ");
                 String? DOBS = Console.ReadLine();
-                customerAccountLoadRequest.dob = config.ConvertStringtoDT(DOBS);
+                customerAccountLoadRequest.dob = config.ParseNullableDateTime(DOBS);
 
                 Console.WriteLine("Enter the Nasd of Employee");
                 Console.Write("> ");
@@ -1274,12 +1274,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Start Date");
                 Console.Write("> ");
                 String? StDt = Console.ReadLine();
-                customerAccountLoadRequest.stat_st_dt = config.ConvertStringtoDT(StDt);
+                customerAccountLoadRequest.stat_st_dt = config.ParseNullableDateTime(StDt);
 
                 Console.WriteLine("Enter the End Date");
                 Console.Write("> ");
                 String? EtDt = Console.ReadLine();
-                customerAccountLoadRequest.stat_en_dt = config.ConvertStringtoDT(EtDt);
+                customerAccountLoadRequest.stat_en_dt = config.ParseNullableDateTime(EtDt);
 
                 Console.WriteLine("Enter the INV objective");
                 Console.Write("> ");
@@ -1300,7 +1300,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Tax Bracket");
                 Console.Write("> ");
                 String? TBS = Console.ReadLine();
-                customerAccountLoadRequest.tax_bracket = Convert.ToByte(TBS);
+                customerAccountLoadRequest.tax_bracket = config.ParseNullableByte(TBS);
 
                 Console.WriteLine("Enter the Stock Level");
                 Console.Write("> ");
@@ -1309,7 +1309,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Stock Year");
                 Console.Write("> ");
                 String? STYS = Console.ReadLine();
-                customerAccountLoadRequest.years_stocks = Convert.ToByte(STYS);
+                customerAccountLoadRequest.years_stocks = config.ParseNullableByte(STYS);
 
                 Console.WriteLine("Enter the Option Level");
                 Console.Write("> ");
@@ -1318,7 +1318,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Years of Option");
                 Console.Write("> ");
                 String? YOS = Console.ReadLine();
-                customerAccountLoadRequest.years_options = Convert.ToByte(YOS);
+                customerAccountLoadRequest.years_options = config.ParseNullableByte(YOS);
 
                 Console.WriteLine("Enter the Account of the firms");
                 Console.Write("> ");
@@ -1522,12 +1522,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Credit Adjustment");
                 Console.Write("> ");
                 String? CAS = Console.ReadLine();
-                customerAccountLoadRequest.credit_adj = Convert.ToDecimal(CAS);
+                customerAccountLoadRequest.credit_adj = config.ParseNullableDecimal(CAS);
 
                 Console.WriteLine("Enter the Debit Adjustment");
                 Console.Write("> ");
                 String? DAS = Console.ReadLine();
-                customerAccountLoadRequest.debit_adj = Convert.ToDecimal(DAS);
+                customerAccountLoadRequest.debit_adj = config.ParseNullableDecimal(DAS);
 
                 Console.WriteLine("Enter the Joint Name");
                 Console.Write("> ");
@@ -1556,7 +1556,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Joint MNR DOB");
                 Console.Write("> ");
                 String? JTDOB = Console.ReadLine();
-                customerAccountLoadRequest.jt_mnr_dob = config.ConvertStringtoDT(JTDOB);
+                customerAccountLoadRequest.jt_mnr_dob = config.ParseNullableDateTime(JTDOB);
 
                 Console.WriteLine("Enter the Joint MNR Citizen");
                 Console.Write("> ");
@@ -1641,17 +1641,17 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Annual Income");
                 Console.Write("> ");
                 String? AIS = Console.ReadLine();
-                customerAccountLoadRequest.annual_inc = Convert.ToInt32(AIS);
+                customerAccountLoadRequest.annual_inc = config.ParseNullableInt(AIS);
 
                 Console.WriteLine("Enter the Net Worth");
                 Console.Write("> ");
                 String? NWS = Console.ReadLine();
-                customerAccountLoadRequest.net_worth = Convert.ToInt32(NWS);
+                customerAccountLoadRequest.net_worth = config.ParseNullableInt(NWS);
 
                 Console.WriteLine("Enter the Liquid Net worth");
                 Console.Write("> ");
                 String? LNWS = Console.ReadLine();
-                customerAccountLoadRequest.net_worth_liq = Convert.ToInt32(LNWS);
+                customerAccountLoadRequest.net_worth_liq = config.ParseNullableInt(LNWS);
 
 
                 Console.WriteLine("Enter the Post pl");
@@ -1665,13 +1665,13 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Cr_int Rate");
                 Console.Write("> ");
                 String? crintrates = Console.ReadLine();
-                customerAccountLoadRequest.cr_int_rate = Convert.ToDecimal(crintrates);
+                customerAccountLoadRequest.cr_int_rate = config.ParseNullableDecimal(crintrates);
 
 
                 Console.WriteLine("Enter the DB_int Rate");
                 Console.Write("> ");
                 String? dbintrates = Console.ReadLine();
-                customerAccountLoadRequest.db_int_rate = Convert.ToDecimal(dbintrates);
+                customerAccountLoadRequest.db_int_rate = config.ParseNullableDecimal(dbintrates);
 
                 Console.WriteLine("Enter the Tefra");
                 Console.Write("> ");
@@ -1680,12 +1680,12 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Dtbp Ratio");
                 Console.Write("> ");
                 String? dtbps = Console.ReadLine();
-                customerAccountLoadRequest.dtbp_ratio = Convert.ToDecimal(dtbps);
+                customerAccountLoadRequest.dtbp_ratio = config.ParseNullableDecimal(dtbps);
 
                 Console.WriteLine("Enter the PM Dtbp Ratio");
                 Console.Write("> ");
                 String? PMdtbps = Console.ReadLine();
-                customerAccountLoadRequest.pm_dtbp_ratio = Convert.ToDecimal(PMdtbps);
+                customerAccountLoadRequest.pm_dtbp_ratio = config.ParseNullableDecimal(PMdtbps);
 
                 Console.WriteLine("Enter the Option level");
                 Console.Write("> ");
@@ -1694,7 +1694,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Start date");
                 Console.Write("> ");
                 String? StartDateS = Console.ReadLine();
-                customerAccountLoadRequest.start_dt = config.ConvertStringtoDT(StartDateS);
+                customerAccountLoadRequest.start_dt = config.ParseNullableDateTime(StartDateS);
 
                 Console.WriteLine("Enter the OPT Designator");
                 Console.Write("> ");
@@ -1719,32 +1719,32 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Fed_l_rate");
                 Console.Write("> ");
                 String? fedlrates = Console.ReadLine();
-                customerAccountLoadRequest.fed_l_rate = Convert.ToDecimal(fedlrates);
+                customerAccountLoadRequest.fed_l_rate = config.ParseNullableDecimal(fedlrates);
 
                 Console.WriteLine("Enter the Fed_s_rate");
                 Console.Write("> ");
                 String? fedsrates = Console.ReadLine();
-                customerAccountLoadRequest.fed_s_rate = Convert.ToDecimal(fedsrates);
+                customerAccountLoadRequest.fed_s_rate = config.ParseNullableDecimal(fedsrates);
 
                 Console.WriteLine("Enter the Exchange l rate");
                 Console.Write("> ");
                 String? exclrate = Console.ReadLine();
-                customerAccountLoadRequest.exch_l_rate = Convert.ToDecimal(exclrate);
+                customerAccountLoadRequest.exch_l_rate = config.ParseNullableDecimal(exclrate);
 
                 Console.WriteLine("Enter the Exchange S rate");
                 Console.Write("> ");
                 String? excsrate = Console.ReadLine();
-                customerAccountLoadRequest.exch_s_rate = Convert.ToDecimal(excsrate);
+                customerAccountLoadRequest.exch_s_rate = config.ParseNullableDecimal(excsrate);
 
                 Console.WriteLine("Enter the House l rate");
                 Console.Write("> ");
                 String? houslrate = Console.ReadLine();
-                customerAccountLoadRequest.house_l_rate = Convert.ToDecimal(houslrate);
+                customerAccountLoadRequest.house_l_rate = config.ParseNullableDecimal(houslrate);
 
                 Console.WriteLine("Enter the House S rate");
                 Console.Write("> ");
                 String? houssrate = Console.ReadLine();
-                customerAccountLoadRequest.house_s_rate = Convert.ToDecimal(houssrate);
+                customerAccountLoadRequest.house_s_rate = config.ParseNullableDecimal(houssrate);
 
                 Console.WriteLine("Enter the Statement Mail");
                 Console.Write("> ");
@@ -1753,7 +1753,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Statement Copy");
                 Console.Write("> ");
                 String? StCS = Console.ReadLine();
-                customerAccountLoadRequest.stmnt_copy = Convert.ToByte(StCS);
+                customerAccountLoadRequest.stmnt_copy = config.ParseNullableByte(StCS);
 
                 Console.WriteLine("Enter the Confirm MAil");
                 Console.Write("> ");
@@ -1762,7 +1762,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Confirm Copy");
                 Console.Write("> ");
                 String? ConCS = Console.ReadLine();
-                customerAccountLoadRequest.cnfrm_copy = Convert.ToByte(ConCS);
+                customerAccountLoadRequest.cnfrm_copy = config.ParseNullableByte(ConCS);
 
                 Console.WriteLine("Enter the Proxy OPTOUT");
                 Console.Write("> ");
@@ -1791,7 +1791,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trading Limit");
                 Console.Write("> ");
                 String? tls = Console.ReadLine();
-                customerAccountLoadRequest.trading_limit = Convert.ToDecimal(tls);
+                customerAccountLoadRequest.trading_limit = config.ParseNullableDecimal(tls);
 
                 Console.WriteLine("Enter the Rule 2111");
                 Console.Write("> ");
@@ -1808,7 +1808,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Fixed Income Years");
                 Console.Write("> ");
                 String? FIYS = Console.ReadLine();
-                customerAccountLoadRequest.years_fixedinc = Convert.ToByte(FIYS);
+                customerAccountLoadRequest.years_fixedinc = config.ParseNullableByte(FIYS);
 
                 Console.WriteLine("Enter the Time Horizon");
                 Console.Write("> ");
@@ -1829,67 +1829,67 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Ho min equity");
                 Console.Write("> ");
                 String? HMES = Console.ReadLine();
-                customerAccountLoadRequest.ho_min_equity = Convert.ToDecimal(HMES);
+                customerAccountLoadRequest.ho_min_equity = config.ParseNullableDecimal(HMES);
 
                 Console.WriteLine("Enter the Tax Blend rate");
                 Console.Write("> ");
                 String? TBRS = Console.ReadLine();
-                customerAccountLoadRequest.tax_blend_rate = Convert.ToDecimal(TBRS);
+                customerAccountLoadRequest.tax_blend_rate = config.ParseNullableDecimal(TBRS);
 
                 Console.WriteLine("Enter the Deceased date");
                 Console.Write("> ");
                 String? decDateS = Console.ReadLine();
-                customerAccountLoadRequest.deceased_dt = config.ConvertStringtoDT(decDateS);
+                customerAccountLoadRequest.deceased_dt = config.ParseNullableDateTime(decDateS);
 
                 Console.WriteLine("Enter the Account Close date");
                 Console.Write("> ");
                 String? ACDateS = Console.ReadLine();
-                customerAccountLoadRequest.acct_close_dt = config.ConvertStringtoDT(ACDateS);
+                customerAccountLoadRequest.acct_close_dt = config.ParseNullableDateTime(ACDateS);
 
                 Console.WriteLine("Enter the fi_fed_l_rate");
                 Console.Write("> ");
                 String? fifedls = Console.ReadLine();
-                customerAccountLoadRequest.fi_fed_l_rate = Convert.ToDecimal(fifedls);
+                customerAccountLoadRequest.fi_fed_l_rate = config.ParseNullableDecimal(fifedls);
 
                 Console.WriteLine("Enter the fi_fed_s_rate");
                 Console.Write("> ");
                 String? fifedlss = Console.ReadLine();
-                customerAccountLoadRequest.fi_fed_s_rate = Convert.ToDecimal(fifedlss);
+                customerAccountLoadRequest.fi_fed_s_rate = config.ParseNullableDecimal(fifedlss);
 
                 Console.WriteLine("Enter the fi_exch_l_rate");
                 Console.Write("> ");
                 String? fiexhls = Console.ReadLine();
-                customerAccountLoadRequest.fi_exch_l_rate = Convert.ToDecimal(fiexhls);
+                customerAccountLoadRequest.fi_exch_l_rate = config.ParseNullableDecimal(fiexhls);
 
                 Console.WriteLine("Enter the fi_exch_s_rate");
                 Console.Write("> ");
                 String? fiexhss = Console.ReadLine();
-                customerAccountLoadRequest.fi_exch_s_rate = Convert.ToDecimal(fiexhss);
+                customerAccountLoadRequest.fi_exch_s_rate = config.ParseNullableDecimal(fiexhss);
 
                 Console.WriteLine("Enter the fi_house_l_rate");
                 Console.Write("> ");
                 String? fhols = Console.ReadLine();
-                customerAccountLoadRequest.fi_house_l_rate = Convert.ToDecimal(fhols);
+                customerAccountLoadRequest.fi_house_l_rate = config.ParseNullableDecimal(fhols);
 
                 Console.WriteLine("Enter the fi_house_s_rate");
                 Console.Write("> ");
                 String? fhsr = Console.ReadLine();
-                customerAccountLoadRequest.fi_house_s_rate = Convert.ToDecimal(fhsr);
+                customerAccountLoadRequest.fi_house_s_rate = config.ParseNullableDecimal(fhsr);
 
                 Console.WriteLine("Enter the ira_distrb_amt");
                 Console.Write("> ");
                 String? irdias = Console.ReadLine();
-                customerAccountLoadRequest.ira_distrb_amt = Convert.ToDecimal(irdias);
+                customerAccountLoadRequest.ira_distrb_amt = config.ParseNullableDecimal(irdias);
 
                 Console.WriteLine("Enter the ira_fed_tax");
                 Console.Write("> ");
                 String? ifedts = Console.ReadLine();
-                customerAccountLoadRequest.ira_fed_tax = Convert.ToDecimal(ifedts);
+                customerAccountLoadRequest.ira_fed_tax = config.ParseNullableDecimal(ifedts);
 
                 Console.WriteLine("Enter the ira_state_tax");
                 Console.Write("> ");
                 String? istatts = Console.ReadLine();
-                customerAccountLoadRequest.ira_state_tax = Convert.ToDecimal(istatts);
+                customerAccountLoadRequest.ira_state_tax = config.ParseNullableDecimal(istatts);
 
 
 
@@ -1976,18 +1976,18 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Trust date");
                 Console.Write("> ");
                 String? trustDateS = Console.ReadLine();
-                customerAccountLoadRequest.trust_dt = config.ConvertStringtoDT(trustDateS);
+                customerAccountLoadRequest.trust_dt = config.ParseNullableDateTime(trustDateS);
 
 
                 Console.WriteLine("Enter the Trust Net Income");
                 Console.Write("> ");
                 String? tnis = Console.ReadLine();
-                customerAccountLoadRequest.trust_net_inc = Convert.ToInt32(tnis);
+                customerAccountLoadRequest.trust_net_inc = config.ParseNullableInt(tnis);
 
                 Console.WriteLine("Enter the Trust liquid Net Worth");
                 Console.Write("> ");
                 String? tlNWS = Console.ReadLine();
-                customerAccountLoadRequest.trust_net_liq = Convert.ToInt32(tlNWS);
+                customerAccountLoadRequest.trust_net_liq = config.ParseNullableInt(tlNWS);
 
                 Console.WriteLine("Enter the oth_brk_emp");
                 Console.Write("> ");
@@ -2004,7 +2004,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Override Rate");
                 Console.Write("> ");
                 String? ORRS = Console.ReadLine();
-                customerAccountLoadRequest.override_rate = Convert.ToDecimal(tlNWS);
+                customerAccountLoadRequest.override_rate = config.ParseNullableDecimal(tlNWS);
 
 
                 Console.WriteLine("Enter the rpt_8966");
@@ -2054,7 +2054,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the firpta_blend_rate");
                 Console.Write("> ");
                 String? FBRS = Console.ReadLine();
-                customerAccountLoadRequest.firpta_blend_rate = Convert.ToDecimal(FBRS);
+                customerAccountLoadRequest.firpta_blend_rate = config.ParseNullableDecimal(FBRS);
 
                 Console.WriteLine("Enter the add4");
                 Console.Write("> ");
@@ -2149,6 +2149,7 @@ namespace icAPIConsole.APIEndPoints
                 customerAccountLoadRequest.dummy2 = Console.ReadLine();
 
                 #endregion "Additional Fields"
+
 
 
                 var dataAsString = JsonConvert.SerializeObject(customerAccountLoadRequest);
