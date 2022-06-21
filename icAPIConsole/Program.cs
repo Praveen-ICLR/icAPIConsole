@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using icAPIConsole.APIEndPoints;
-
-namespace icAPIConsole
+﻿namespace icAPIConsole
 {
     class Program
     {

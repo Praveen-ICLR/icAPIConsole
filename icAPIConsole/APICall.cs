@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using icAPIConsole.APIEndPoints;
+﻿using icAPIConsole.APIEndPoints;
 
 namespace icAPIConsole
 {
@@ -11,7 +6,7 @@ namespace icAPIConsole
     {
         public void APIConditionClass(string[] args)
         {
-       
+
             String? i;
 
             Console.WriteLine(@"Please select the API: 
@@ -26,8 +21,8 @@ namespace icAPIConsole
 
             //Selecting the API to be called 
 
-          //Transaction Api
-          if (i == "1")
+            //Transaction Api
+            if (i == "1")
             {
                 Console.WriteLine(@"Please select the Transaction Method You want to Proceed: 
                 A.Get Transaction
@@ -61,84 +56,84 @@ namespace icAPIConsole
 
 
             }
-            
-          //Activity API
-          else if (i == "2")
-             {
-                 MainGetAct(args).GetAwaiter().GetResult();
-                 Console.ReadLine();
-             }
-          
-             //Security API 
-             else if (i == "3")
-             {
-                 Console.WriteLine(@"Please select the SecurityProfile Method You want to Proceed: 
+
+            //Activity API
+            else if (i == "2")
+            {
+                MainGetAct(args).GetAwaiter().GetResult();
+                Console.ReadLine();
+            }
+
+            //Security API 
+            else if (i == "3")
+            {
+                Console.WriteLine(@"Please select the SecurityProfile Method You want to Proceed: 
                  A.Get Security Profile
                  B.Post Security Profile
                  C.Update Security Profile
                  "
-    );
-                 Console.Write("> ");
-                 String? SPMethod = Console.ReadLine();
+   );
+                Console.Write("> ");
+                String? SPMethod = Console.ReadLine();
 
-                 if (SPMethod == "B")
-                 {
+                if (SPMethod == "B")
+                {
                     MainLoadSecurityProfile(SPMethod).GetAwaiter().GetResult();
                     Console.ReadLine();
 
-                 }
-                 else if (SPMethod == "A")
-                 {
-                     MainGetSecurityProfile(args).GetAwaiter().GetResult();
-                     Console.ReadLine();
-                 }
-                 else if (SPMethod == "C")
-                 {
-                     MainLoadSecurityProfile(SPMethod).GetAwaiter().GetResult();
-                     Console.ReadLine();
-                 }
-                 else
-                 {
-                     Console.WriteLine("Select Right option");
-                 }
+                }
+                else if (SPMethod == "A")
+                {
+                    MainGetSecurityProfile(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else if (SPMethod == "C")
+                {
+                    MainLoadSecurityProfile(SPMethod).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Select Right option");
+                }
 
 
-             }
-            
-               //Customer API
-               else if (i == "4")
-               {
-                   Console.WriteLine(@"Please select the Customer Account Method You want to Proceed: 
+            }
+
+            //Customer API
+            else if (i == "4")
+            {
+                Console.WriteLine(@"Please select the Customer Account Method You want to Proceed: 
                    A.Get Customer Account 
                    B.Add Customer Account - Post Method 
                    C.Update Customer Account - Put Method
                    "
-      );
-                   Console.Write("> ");
-                   String? CAMethod = Console.ReadLine();
+   );
+                Console.Write("> ");
+                String? CAMethod = Console.ReadLine();
 
-                   if (CAMethod == "B")
-                   {
-                       MainAddCA(args).GetAwaiter().GetResult();
-                       Console.ReadLine();
+                if (CAMethod == "B")
+                {
+                    MainAddCA(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
 
-                   }
-                   else if (CAMethod == "A")
-                   {
-                       MainGetCA(args).GetAwaiter().GetResult();
-                       Console.ReadLine();
-                   }
-                   else if (CAMethod == "C")
-                   {
-                       MainUpdateCA(args).GetAwaiter().GetResult();
-                       Console.ReadLine();
                 }
-                   else
-                   {
-                       Console.WriteLine("Select Right option");
-                   }
+                else if (CAMethod == "A")
+                {
+                    MainGetCA(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else if (CAMethod == "C")
+                {
+                    MainUpdateCA(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Select Right option");
+                }
 
-               } 
+            }
             //EOD API
             else if (i == "5")
             {
@@ -150,12 +145,12 @@ namespace icAPIConsole
                 Console.Write("> ");
                 String? EODMethod = Console.ReadLine();
 
-              if (EODMethod == "B")
+                if (EODMethod == "B")
                 {
                     MainGetEODPosition(args).GetAwaiter().GetResult();
                     Console.ReadLine();
 
-                } 
+                }
                 if (EODMethod == "A")
                 {
                     MainGetEODCash(args).GetAwaiter().GetResult();
@@ -163,7 +158,7 @@ namespace icAPIConsole
                 }
 
             }
-           else
+            else
             {
                 Console.WriteLine("Not correct API was selected!");
             }
@@ -224,7 +219,7 @@ namespace icAPIConsole
             await CustomerAccountAPIEndPoints.GetCustomerAccounts();
         }
 
-           //Customer Account Add API Function
+        //Customer Account Add API Function
         static async Task MainAddCA(string[] args)
         {
 

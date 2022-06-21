@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using icAPIConsole.Core;
 using icAPIConsole.Models.SecurityProfile;
-using icAPIConsole.Core;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace icAPIConsole.APIEndPoints
 {
@@ -16,9 +12,9 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-          
+
                 SecurityProfileGetRequest SecProfileGetRequest = new SecurityProfileGetRequest();
-             
+
                 UrlConfiguration config = new UrlConfiguration();
 
                 Console.WriteLine("Enter the Symbol");
@@ -53,8 +49,10 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(contents);
-                    Console.WriteLine("EOD Data fetched");
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
+                    Console.WriteLine("Security Profile Data is fetched....");
                 }
                 else
                 {
@@ -168,7 +166,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the Federal L Rate");
                 Console.Write("> ");
-                String? FLRS = Console.ReadLine();  
+                String? FLRS = Console.ReadLine();
                 secuirtyProfileLoadRequest.fed_l_rate = config.ParseNullableDecimal(FLRS);
 
                 Console.WriteLine("Enter the Federal S Rate");
@@ -254,7 +252,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the Redemeption Days");
                 Console.Write("> ");
-                String? redemeptiondayss = Console.ReadLine();  
+                String? redemeptiondayss = Console.ReadLine();
                 secuirtyProfileLoadRequest.redmp_days = config.ParseNullableshort(redemeptiondayss);
 
                 Console.WriteLine("Enter the Redemption Fees");
@@ -405,7 +403,7 @@ namespace icAPIConsole.APIEndPoints
                 String? MFBuyAccrs = Console.ReadLine();
                 secuirtyProfileLoadRequest.mfdiv_buy_accr = config.ParseNullableshort(MFBuyAccrs);
 
-            
+
 
                 Console.WriteLine("Enter the mfdiv_sell_accr");
                 Console.Write("> ");
@@ -525,8 +523,9 @@ namespace icAPIConsole.APIEndPoints
                     {
                         Uri? ncrUrl = response.Headers.Location;
                         var contents = await response.Content.ReadAsStringAsync();
-                        //  var responsebody = JsonConvert.SerializeObject(contents);
-                        Console.WriteLine(contents);
+                        var obj = JsonConvert.DeserializeObject(contents);
+                        var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                        Console.WriteLine(JS);
                         Console.WriteLine("Security Profile Loaded");
                     }
                     else
@@ -537,7 +536,7 @@ namespace icAPIConsole.APIEndPoints
                     }
                 }
 
-                else if(I == "B")
+                else if (I == "B")
                 {
                     HttpResponseMessage response = await client.PostAsync(config.BASEURL() + "/SecurityProfile", dataContent);
 
@@ -545,8 +544,9 @@ namespace icAPIConsole.APIEndPoints
                     {
                         Uri? ncrUrl = response.Headers.Location;
                         var contents = await response.Content.ReadAsStringAsync();
-                        //  var responsebody = JsonConvert.SerializeObject(contents);
-                        Console.WriteLine(contents);
+                        var obj = JsonConvert.DeserializeObject(contents);
+                        var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                        Console.WriteLine(JS);
                         Console.WriteLine("Security Profile Loaded");
                     }
                     else
@@ -556,7 +556,7 @@ namespace icAPIConsole.APIEndPoints
 
                     }
                 }
-               
+
 
 
             }

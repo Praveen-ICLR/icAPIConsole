@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-
-using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace icAPIConsole.Core
 {
     public class UrlConfiguration
     {
-     
+
         public String BASEURL()
         {
             //Getting Base URL 
@@ -24,9 +17,9 @@ namespace icAPIConsole.Core
 
         }
 
-       public Decimal? ParseNullableDecimal(String value)
+        public Decimal? ParseNullableDecimal(String value)
         {
-            if(string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 return null;
 
             return Decimal.Parse(value);
@@ -73,6 +66,6 @@ namespace icAPIConsole.Core
             return parsedDate;
         }
 
-      
+
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace icAPIConsole.Models.SecurityProfile
 {
@@ -82,7 +77,7 @@ namespace icAPIConsole.Models.SecurityProfile
         public decimal? put_rate3 { get; set; }
         public string? sec_charge { get; set; }
         public string? country { get; set; }
-        public string wi { get; set; }
+        public string? wi { get; set; }
         public DateTime? wi_dt { get; set; }
         public string? mfdiv_accr { get; set; }
         public short? mfdiv_buy_accr { get; set; }
@@ -98,18 +93,18 @@ namespace icAPIConsole.Models.SecurityProfile
         public string? sweep_dest { get; set; }
         public string? sweep_sym { get; set; }
         public string? accr_basis { get; set; }
-        public string trace_elig { get; set; }
+        public string? trace_elig { get; set; }
         public DateTime? trace_dt { get; set; }
-        public string trace_status { get; set; }
-        public string mic { get; set; }
-        public string parent_ctry_cd { get; set; }
+        public string? trace_status { get; set; }
+        public string? mic { get; set; }
+        public string? parent_ctry_cd { get; set; }
         public decimal? override_rate { get; set; }
-        public string fed_taxable { get; set; }
-        public string state_taxable { get; set; }
-        public string firm_sec_type { get; set; }
-        public string cov_uncov { get; set; }
-        public string contra_cusip_flg { get; set; }
-        public string master_cusip { get; set; }
+        public string? fed_taxable { get; set; }
+        public string? state_taxable { get; set; }
+        public string? firm_sec_type { get; set; }
+        public string? cov_uncov { get; set; }
+        public string? contra_cusip_flg { get; set; }
+        public string? master_cusip { get; set; }
 
     }
 }

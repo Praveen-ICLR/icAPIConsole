@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using icAPIConsole.Core;
 using icAPIConsole.Models.EOD;
-using icAPIConsole.Core;
+using Newtonsoft.Json;
 
 namespace icAPIConsole.APIEndPoints
 {
     public class EODAPIEndPoints
     {
-       
+
         //EOD Cash Get Request
         public static async Task EODCashGetRequest()
         {
-            using(var client = new HttpClient())
+            using (var client = new HttpClient())
             {
                 EODGetRequest eODGetRequest = new EODGetRequest();
                 UrlConfiguration config = new UrlConfiguration();
@@ -33,7 +28,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.Write("> ");
                 eODGetRequest.search = Console.ReadLine();
 
-               
+
 
                 //Request Parameter
                 HttpResponseMessage response = await client.GetAsync(config.BASEURL() + "/EOD/Cash?system_dt=" +
@@ -44,8 +39,10 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(contents);
-                    Console.WriteLine("EOD Data fetched");
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
+                    Console.WriteLine("EOD Cash Data is fetched....");
                 }
                 else
                 {
@@ -91,8 +88,10 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(contents);
-                    Console.WriteLine("EOD Data fetched");
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
+                    Console.WriteLine("EOD Position Data is fetched....");
                 }
                 else
                 {

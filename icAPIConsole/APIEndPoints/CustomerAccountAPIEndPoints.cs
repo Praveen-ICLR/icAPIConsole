@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using icAPIConsole.Core;
+﻿using icAPIConsole.Core;
 using icAPIConsole.Models.CustomerAccount;
 using Newtonsoft.Json;
+using System.Text;
 namespace icAPIConsole.APIEndPoints
 {
     public class CustomerAccountAPIEndPoints
@@ -15,7 +11,7 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-               
+
 
                 CustomerAccountGetRequest CAGetRequest = new CustomerAccountGetRequest();
                 UrlConfiguration config = new UrlConfiguration();
@@ -63,7 +59,9 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(contents);
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
                     Console.WriteLine("Customer Account Data fetched");
                 }
                 else
@@ -85,7 +83,7 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-                
+
                 CustomerAccountLoadRequest customerAccountLoadRequest = new CustomerAccountLoadRequest();
                 UrlConfiguration config = new UrlConfiguration();
 
@@ -204,7 +202,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Date of Birth");
                 Console.Write("> ");
                 String? DOBS = Console.ReadLine();
-                customerAccountLoadRequest.dob = config.ParseNullableDateTime(DOBS); 
+                customerAccountLoadRequest.dob = config.ParseNullableDateTime(DOBS);
 
                 Console.WriteLine("Enter the Nasd of Employee");
                 Console.Write("> ");
@@ -269,7 +267,7 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Years of Option");
                 Console.Write("> ");
                 String? YOS = Console.ReadLine();
-                customerAccountLoadRequest.years_options= config.ParseNullableByte(YOS);
+                customerAccountLoadRequest.years_options = config.ParseNullableByte(YOS);
 
                 Console.WriteLine("Enter the Account of the firms");
                 Console.Write("> ");
@@ -506,7 +504,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the Joint MNR DOB");
                 Console.Write("> ");
-                String? JTDOB = Console.ReadLine(); 
+                String? JTDOB = Console.ReadLine();
                 customerAccountLoadRequest.jt_mnr_dob = config.ParseNullableDateTime(JTDOB);
 
                 Console.WriteLine("Enter the Joint MNR Citizen");
@@ -591,7 +589,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the Annual Income");
                 Console.Write("> ");
-                String? AIS = Console.ReadLine();   
+                String? AIS = Console.ReadLine();
                 customerAccountLoadRequest.annual_inc = config.ParseNullableInt(AIS);
 
                 Console.WriteLine("Enter the Net Worth");
@@ -819,7 +817,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the fi_house_l_rate");
                 Console.Write("> ");
-                String? fhols= Console.ReadLine();
+                String? fhols = Console.ReadLine();
                 customerAccountLoadRequest.fi_house_l_rate = config.ParseNullableDecimal(fhols);
 
                 Console.WriteLine("Enter the fi_house_s_rate");
@@ -1111,15 +1109,16 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    //  var responsebody = JsonConvert.SerializeObject(contents);
-                    Console.WriteLine(contents);
-                    Console.WriteLine("Transaction Cancelled");
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
+                    Console.WriteLine("Customer Profile is Added");
                 }
                 else
                 {
                     Console.WriteLine("Statuscode is error");
                     Console.WriteLine(response.Content);
-                   
+
                 }
 
 
@@ -2161,9 +2160,11 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    //  var responsebody = JsonConvert.SerializeObject(contents);
-                    Console.WriteLine(contents);
-                    Console.WriteLine("Transaction Cancelled");
+
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
+                    Console.WriteLine("Customer Profile is Updated");
                 }
                 else
                 {

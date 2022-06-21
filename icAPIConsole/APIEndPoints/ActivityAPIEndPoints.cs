@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using icAPIConsole.Core;
 using icAPIConsole.Models.Activity;
-using icAPIConsole.Core;
 using Newtonsoft.Json;
-
 
 namespace icAPIConsole.APIEndPoints
 {
@@ -17,11 +11,11 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-          
 
-               ActivityGetRequest activityGetRequest = new ActivityGetRequest();
-               UrlConfiguration config = new UrlConfiguration();
-               
+
+                ActivityGetRequest activityGetRequest = new ActivityGetRequest();
+                UrlConfiguration config = new UrlConfiguration();
+
 
 
                 Console.WriteLine("Enter the System Date");
@@ -29,23 +23,26 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the Crosspondents");
                 activityGetRequest.corr = Console.ReadLine();
 
+
+
                 //Request Parameter
-                HttpResponseMessage response = await client.GetAsync(config.BASEURL()+ "/Activity?system_dt=" + activityGetRequest.system_dt + "&corr=" + activityGetRequest.corr);
+                HttpResponseMessage response = await client.GetAsync(config.BASEURL() + "/Activity?system_dt=" + activityGetRequest.system_dt + "&corr=" + activityGetRequest.corr);
 
 
                 if (response.IsSuccessStatusCode)
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-               
-                 
-                  // Console.WriteLine(x);
+
+                     var obj = JsonConvert.DeserializeObject(contents);
+                     var dataAsString = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                     Console.WriteLine(dataAsString);
                     Console.WriteLine("Activity Data fetched");
                 }
                 else
                 {
                     Console.WriteLine("Statuscode is error");
-                    Console.WriteLine(response.Content);
+                 //   Console.WriteLine(response.Content);
                     Console.WriteLine(response);
 
                 }

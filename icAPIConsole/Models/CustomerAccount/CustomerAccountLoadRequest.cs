@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace icAPIConsole.Models.CustomerAccount
+﻿namespace icAPIConsole.Models.CustomerAccount
 {
     public class CustomerAccountLoadRequest
     {
@@ -22,12 +16,12 @@ namespace icAPIConsole.Models.CustomerAccount
         //public string status { get; set; }
         public string? capacity { get; set; } //f
         public string? sol_unsol { get; set; } //f
- 
+
         public string? rr_cd { get; set; } //f
         public string? ad_cd { get; set; } //f
         public string? an_cd { get; set; } //f
         public string? pm_cd { get; set; } //f
-    
+
         public string? ac_grp_cd { get; set; } //f
         public string? currency { get; set; } //f
         public string? legal_entity { get; set; } //f
@@ -49,11 +43,11 @@ namespace icAPIConsole.Models.CustomerAccount
         //public string day_trader { get; set; }
         //public string large_trader { get; set; }
         public string? large_trader_id { get; set; } //commented large_trader and added large_trader_id instead
-      
+
         public string? inactive_reason { get; set; } //f
         public DateTime? stat_st_dt { get; set; } //f
         public DateTime? stat_en_dt { get; set; } //f
-      
+
         public string? inv_objective { get; set; } //f
         public string? risk_tolerence { get; set; } //f
         public string? fncl_data { get; set; } //f
@@ -72,64 +66,64 @@ namespace icAPIConsole.Models.CustomerAccount
         public string? index_arbitrage { get; set; } //f
         public string? bill_srvc_lvl { get; set; } //f
         public string? div_reinv { get; set; } //f
-   
+
         public string? in_acct_no { get; set; } //f
         public string? out_acct_no { get; set; } //f
         public string? ssn_type { get; set; } //f
         public string? giin { get; set; } //f
         public string? ftn { get; set; } //f
         public string? FDID { get; set; } //f
-  
+
         #endregion "cust_profile fields"
 
         #region "cust_details fields"
- 
-        public string salute { get; set; } //f
-        public string contactf { get; set; } //f
-        public string contactl { get; set; } //f
-        public string m_initial { get; set; } //f
-        public string w8w9 { get; set; } //f
-        public string w8w9type { get; set; } //f
-        public string w8rec_cd { get; set; } //f
-      
-        public string bkup_withhold { get; set; } //f
-        public string add1 { get; set; } //f
-        public string add2 { get; set; } //f
-        public string add3 { get; set; } //f
-        public string city { get; set; } //f
-        public string st_cd { get; set; } //f
-        public string zip { get; set; } //f
-        public string country { get; set; } //f
-        public string phone { get; set; } //f
-        public string fax { get; set; } //f
-        public string email { get; set; } //f
-        public string citizenship { get; set; } //f
-        public string tax_country { get; set; } //f
-        public string mail_flg { get; set; } //f
-        public string mail_add1 { get; set; } //f
-        public string mail_add2 { get; set; } //f
-        public string mail_add3 { get; set; } //f
-        public string mail_city { get; set; } //f
-        public string mail_st_cd { get; set; } //f
-        public string mail_zip { get; set; } //f
-        public string mail_country { get; set; } //f
+
+        public string? salute { get; set; } //f
+        public string? contactf { get; set; } //f
+        public string? contactl { get; set; } //f
+        public string? m_initial { get; set; } //f
+        public string? w8w9 { get; set; } //f
+        public string? w8w9type { get; set; } //f
+        public string? w8rec_cd { get; set; } //f
+
+        public string? bkup_withhold { get; set; } //f
+        public string? add1 { get; set; } //f
+        public string? add2 { get; set; } //f
+        public string? add3 { get; set; } //f
+        public string? city { get; set; } //f
+        public string? st_cd { get; set; } //f
+        public string? zip { get; set; } //f
+        public string? country { get; set; } //f
+        public string? phone { get; set; } //f
+        public string? fax { get; set; } //f
+        public string? email { get; set; } //f
+        public string? citizenship { get; set; } //f
+        public string? tax_country { get; set; } //f
+        public string? mail_flg { get; set; } //f
+        public string? mail_add1 { get; set; } //f
+        public string? mail_add2 { get; set; } //f
+        public string? mail_add3 { get; set; } //f
+        public string? mail_city { get; set; } //f
+        public string? mail_st_cd { get; set; } //f
+        public string? mail_zip { get; set; } //f
+        public string? mail_country { get; set; } //f
         //public string aba_num { get; set; }
-        public string custodian { get; set; } //f
-        public string guarantee { get; set; } //f
-        public string employer { get; set; } //f
-        public string emp_add1 { get; set; } //f
-        public string emp_add2 { get; set; } //f
-        public string emp_add3 { get; set; } //f
+        public string? custodian { get; set; } //f
+        public string? guarantee { get; set; } //f
+        public string? employer { get; set; } //f
+        public string? emp_add1 { get; set; } //f
+        public string? emp_add2 { get; set; } //f
+        public string? emp_add3 { get; set; } //f
         public decimal? credit_adj { get; set; } //f
         public decimal? debit_adj { get; set; } //f
-        public string jt_name { get; set; } //f
-        public string jt_fname { get; set; } //f
-        public string jt_m_initial { get; set; } //f
-        public string jt_lname { get; set; } //f
-        public string jt_ssn { get; set; } //f
+        public string? jt_name { get; set; } //f
+        public string? jt_fname { get; set; } //f
+        public string? jt_m_initial { get; set; } //f
+        public string? jt_lname { get; set; } //f
+        public string? jt_ssn { get; set; } //f
         public string? jt_mnr_relation { get; set; } //f
         public DateTime? jt_mnr_dob { get; set; } //f
-        public string jt_mnr_citizen { get; set; } //f
+        public string? jt_mnr_citizen { get; set; } //f
         public string? jt_mnr_w8 { get; set; } //f
         public string? jt_empr_name { get; set; } //f
         public string? jt_empr_addr { get; set; } //f
@@ -177,7 +171,7 @@ namespace icAPIConsole.Models.CustomerAccount
         public decimal? house_s_rate { get; set; } //f
         public string? stmnt_mail { get; set; } //f
         public byte? stmnt_copy { get; set; } //f
-        public string cnfrm_mail { get; set; } //f
+        public string? cnfrm_mail { get; set; } //f
         public byte? cnfrm_copy { get; set; } //f
         public string? proxy_optout { get; set; } //f
         public string? lei { get; set; } //f
@@ -210,7 +204,7 @@ namespace icAPIConsole.Models.CustomerAccount
         public decimal? ira_fed_tax { get; set; } //f
         public decimal? ira_state_tax { get; set; } //f
         public string? sh_seg_offset { get; set; } //f
-       
+
         public string? escrow_acct_type { get; set; } //f
         public string? mail_irs_forms { get; set; } //f
         public string? intraday_cnfrm { get; set; } //f
@@ -248,38 +242,38 @@ namespace icAPIConsole.Models.CustomerAccount
         public decimal? firpta_blend_rate { get; set; } //f
         public string? add4 { get; set; } //f
         public string? add5 { get; set; } //f
-  
+
         #endregion "cust_details fields"
 
-   
+
 
         #region "cust_type fields"
-    
+
         public string? acct_type { get; set; } //f
-      
+
         #endregion "cust_type fields"
 
         #region "cust_dvp fields"
-        
+
         public string? dvp_id_num { get; set; } //f id_num modified to dvp_id_num
         public string? act_agent_bk { get; set; } //f
-      
+
         public string? access_cd { get; set; } //f
         public string? dtcc_num { get; set; } //f
-      
+
         public string? agent_bk { get; set; } //f
-        
+
         public string? ip_num_1 { get; set; } //f
         public string? ip_account_1 { get; set; } //f
         public string? ip_num_2 { get; set; } //f
-        public string? ip_account_2 { get; set; } 
+        public string? ip_account_2 { get; set; }
         #endregion "cust_dvp fields"
 
 
 
         #region "cust_sub_acct fields"
-     
-        public string? sub_acct_no { get; set; } 
+
+        public string? sub_acct_no { get; set; }
         #endregion "cust_sub_acct fields"
 
         #region "Additional fields"

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using icAPIConsole.Core;
 using icAPIConsole.Models.Transactions;
-using icAPIConsole.Core;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace icAPIConsole.APIEndPoints
 {
@@ -17,14 +13,16 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-                
+
 
                 TransactionsCancelRequest TCrequest = new TransactionsCancelRequest();
                 UrlConfiguration config = new UrlConfiguration();
 
                 Console.WriteLine("Enter the Trade Number ");
                 Console.Write("> ");
-                String? trno = Console.ReadLine();
+                String? trnos = Console.ReadLine();
+                TCrequest.tr_no = config.ParseNullableDecimal(trnos);
+
                 Console.WriteLine("Enter the System Date");
                 Console.Write("> ");
                 TCrequest.system_dt = Console.ReadLine();
@@ -57,18 +55,16 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    //  var responsebody = JsonConvert.SerializeObject(contents);
-                    Console.WriteLine(contents);
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
                     Console.WriteLine("Transaction Cancelled");
                 }
                 else
                 {
                     Console.WriteLine("Statuscode is error");
                     Console.WriteLine(response.Content);
-                    //  Console.WriteLine(response);
-                    /*  Console.WriteLine(response.StatusCode.ToString());
-                      Console.WriteLine(response.RequestMessage.ToString());
-                      Console.WriteLine(response.Content);      */
+                 
                 }
 
 
@@ -106,15 +102,16 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    //  var responsebody = JsonConvert.SerializeObject(contents);
-                    Console.WriteLine(contents);
+                    var obj = JsonConvert.DeserializeObject(contents);
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
                     Console.WriteLine("All Transaction Cancelled");
                 }
                 else
                 {
                     Console.WriteLine("Statuscode is error");
                     Console.WriteLine(response.Content);
-                  
+
                 }
 
 
@@ -126,7 +123,7 @@ namespace icAPIConsole.APIEndPoints
 
             using (var client = new HttpClient())
             {
-              
+
 
                 TransactionGetRequest transactionGetRequest = new TransactionGetRequest();
                 UrlConfiguration config = new UrlConfiguration();
@@ -147,11 +144,11 @@ namespace icAPIConsole.APIEndPoints
                 Console.WriteLine("Enter the account number");
                 Console.Write("> ");
                 transactionGetRequest.acct_no = Console.ReadLine();
-              
+
                 Console.WriteLine("Enter the office");
                 Console.Write("> ");
                 transactionGetRequest.office = Console.ReadLine();
-      
+
                 Console.WriteLine("Enter the account type");
                 Console.Write("> ");
                 transactionGetRequest.acct_type = Console.ReadLine();
@@ -294,54 +291,59 @@ namespace icAPIConsole.APIEndPoints
                 Console.Write("> ");
                 transactionGetRequest.cl_order_id = Console.ReadLine();
 
-               
+
 
 
 
                 HttpResponseMessage response = await client.GetAsync(config.BASEURL() + "/Transactions?tr_no=" + transactionGetRequest.tr_no +
                "&etype_list=" + transactionGetRequest.etype_list +
-               "&corr=" + transactionGetRequest.corr + 
-               "&office=" + transactionGetRequest.office + 
-               "&acct_no=" + transactionGetRequest.acct_no + 
+               "&corr=" + transactionGetRequest.corr +
+               "&office=" + transactionGetRequest.office +
+               "&acct_no=" + transactionGetRequest.acct_no +
                "&acct_type=" + transactionGetRequest.acct_type +
-               "&sub_acct_no=" + transactionGetRequest.sub_acct_no + 
-               "&symbol=" + transactionGetRequest.symbol + 
-               "&qty=" + transactionGetRequest.qty + 
+               "&sub_acct_no=" + transactionGetRequest.sub_acct_no +
+               "&symbol=" + transactionGetRequest.symbol +
+               "&qty=" + transactionGetRequest.qty +
                "&price=" + transactionGetRequest.price +
-               "&n_amt=" + transactionGetRequest.n_amt + 
-               "&contra_code=" + transactionGetRequest.contra_code + 
+               "&n_amt=" + transactionGetRequest.n_amt +
+               "&contra_code=" + transactionGetRequest.contra_code +
                "&blot_exch_cd=" + transactionGetRequest.blot_exch_cd +
-               "&blot_clr_typ=" + transactionGetRequest.blot_clr_typ + 
+               "&blot_clr_typ=" + transactionGetRequest.blot_clr_typ +
                "&blot_method=" + transactionGetRequest.blot_method +
-               "&feetyp =" + transactionGetRequest.feetyp + 
-               "&ftdt=" + transactionGetRequest.ftdt + 
-               "&ttdt=" + transactionGetRequest.ttdt + 
-               "&fsdt=" + transactionGetRequest.fsdt + 
-               "&tsdt=" + transactionGetRequest.tsdt + 
-               "&fxdt=" + transactionGetRequest.fxdt + 
-               "&txdt=" + transactionGetRequest.txdt + 
-               "&side=" + transactionGetRequest.side + 
-               "&settle=" + transactionGetRequest.settle + 
-               "&rr_cd=" + transactionGetRequest.rr_cd + 
+               "&feetyp =" + transactionGetRequest.feetyp +
+               "&ftdt=" + transactionGetRequest.ftdt +
+               "&ttdt=" + transactionGetRequest.ttdt +
+               "&fsdt=" + transactionGetRequest.fsdt +
+               "&tsdt=" + transactionGetRequest.tsdt +
+               "&fxdt=" + transactionGetRequest.fxdt +
+               "&txdt=" + transactionGetRequest.txdt +
+               "&side=" + transactionGetRequest.side +
+               "&settle=" + transactionGetRequest.settle +
+               "&rr_cd=" + transactionGetRequest.rr_cd +
                "&c_corr=" + transactionGetRequest.c_corr +
-               "&c_office =" + transactionGetRequest.c_office + 
-               "&c_acct_no=" + transactionGetRequest.c_acct_no + 
-               "&c_acct_type=" + transactionGetRequest.c_acct_type + 
-               "&c_sub_acct_no=" + transactionGetRequest.c_sub_acct_no + 
-               "&loginid=" + transactionGetRequest.loginid + 
+               "&c_office =" + transactionGetRequest.c_office +
+               "&c_acct_no=" + transactionGetRequest.c_acct_no +
+               "&c_acct_type=" + transactionGetRequest.c_acct_type +
+               "&c_sub_acct_no=" + transactionGetRequest.c_sub_acct_no +
+               "&loginid=" + transactionGetRequest.loginid +
                "&trd_tag=" + transactionGetRequest.trd_tag +
                "&exclude_login=" + transactionGetRequest.exclude_login +
-               "&currency=" + transactionGetRequest.currency + 
-               "&ac_grp_cd=" + transactionGetRequest.ac_grp_cd + 
-               "&capacity=" + transactionGetRequest.capacity + 
-               "&batchno=" + transactionGetRequest.batchno + 
-               "&w8w9=" + transactionGetRequest.w8w9 + 
+               "&currency=" + transactionGetRequest.currency +
+               "&ac_grp_cd=" + transactionGetRequest.ac_grp_cd +
+               "&capacity=" + transactionGetRequest.capacity +
+               "&batchno=" + transactionGetRequest.batchno +
+               "&w8w9=" + transactionGetRequest.w8w9 +
                "&cl_order_id=" + transactionGetRequest.cl_order_id);
 
 
                 if (response.IsSuccessStatusCode)
                 {
                     Uri? ncrUrl = response.Headers.Location;
+                    var contents = await response.Content.ReadAsStringAsync();
+                    var obj = JsonConvert.DeserializeObject(contents);
+                  
+                    var JS = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                    Console.WriteLine(JS);
                     Console.WriteLine("Transaction Data fetched");
                 }
                 else
@@ -349,7 +351,7 @@ namespace icAPIConsole.APIEndPoints
                     Console.WriteLine("Statuscode is error");
                     Console.WriteLine(response.Content);
                     Console.WriteLine(response);
-                  
+
                 }
 
 
