@@ -17,6 +17,7 @@ namespace icAPIConsole.APIEndPoints
             {
           
                 SecurityProfileGetRequest SecProfileGetRequest = new SecurityProfileGetRequest();
+             
                 UrlConfiguration config = new UrlConfiguration();
 
                 Console.WriteLine("Enter the Symbol");

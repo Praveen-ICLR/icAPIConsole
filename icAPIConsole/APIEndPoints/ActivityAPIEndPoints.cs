@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using icAPIConsole.Models.Activity;
 using icAPIConsole.Core;
+using Newtonsoft.Json;
+
 
 namespace icAPIConsole.APIEndPoints
 {
@@ -24,7 +26,7 @@ namespace icAPIConsole.APIEndPoints
 
                 Console.WriteLine("Enter the System Date");
                 activityGetRequest.system_dt = Console.ReadLine();
-                Console.WriteLine("Enter the Crosspondent");
+                Console.WriteLine("Enter the Crosspondents");
                 activityGetRequest.corr = Console.ReadLine();
 
                 //Request Parameter
@@ -35,7 +37,9 @@ namespace icAPIConsole.APIEndPoints
                 {
                     Uri? ncrUrl = response.Headers.Location;
                     var contents = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(contents);
+               
+                 
+                  // Console.WriteLine(x);
                     Console.WriteLine("Activity Data fetched");
                 }
                 else
