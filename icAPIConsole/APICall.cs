@@ -79,12 +79,12 @@ namespace icAPIConsole
                  "
     );
                  Console.Write("> ");
-                 String SPMethod = Console.ReadLine();
+                 String? SPMethod = Console.ReadLine();
 
                  if (SPMethod == "B")
                  {
-                     Console.WriteLine("Under Process");
-                     Console.ReadLine();
+                    MainLoadSecurityProfile(SPMethod).GetAwaiter().GetResult();
+                    Console.ReadLine();
 
                  }
                  else if (SPMethod == "A")
@@ -94,7 +94,7 @@ namespace icAPIConsole
                  }
                  else if (SPMethod == "C")
                  {
-                     Console.WriteLine("Under Process");
+                     MainLoadSecurityProfile(SPMethod).GetAwaiter().GetResult();
                      Console.ReadLine();
                  }
                  else
@@ -207,6 +207,13 @@ namespace icAPIConsole
         {
 
             await SecurityProfileAPIEndPoints.GetSecurityProfile();
+        }
+
+        //LoadSecurityProfileRequest....
+        static async Task MainLoadSecurityProfile(string a)
+        {
+
+            await SecurityProfileAPIEndPoints.LoadSecurityProfile(a);
         }
 
         /*4. Customer Account function  */

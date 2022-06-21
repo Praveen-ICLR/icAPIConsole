@@ -32,6 +32,14 @@ namespace icAPIConsole.Core
             return Decimal.Parse(value);
         }
 
+        public short? ParseNullableshort(String value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            return short.Parse(value);
+        }
+
         public Int32? ParseNullableInt(String value)
         {
             if (string.IsNullOrEmpty(value))
