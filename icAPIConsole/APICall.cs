@@ -12,9 +12,12 @@ namespace icAPIConsole
             Console.WriteLine(@"Please select the API: 
                 1.Transaction API 
                 2.Activity API 
-                3.Security API 
+                3.Security Profile API 
                 4.Customer Account API
-                5.EOD API"
+                5.EOD API
+                6.Security Coupon API
+                7.Security Factor API
+                8.Security Principle Factor API"
         );
             Console.Write("> ");
             i = Console.ReadLine();
@@ -28,6 +31,7 @@ namespace icAPIConsole
                 A.Get Transaction
                 B.Cancel Transaction 
                 C.Cancel All Transaction
+                D.Make a Transaction 
                 "
    );
                 Console.Write("> ");
@@ -49,6 +53,11 @@ namespace icAPIConsole
                     MainCancelAllTrans(args).GetAwaiter().GetResult();
                     Console.ReadLine();
                 }
+                else if (TransMethod == "D")
+                {
+                    MainPostTrans(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
                 else
                 {
                     Console.WriteLine("Select Right option");
@@ -64,7 +73,7 @@ namespace icAPIConsole
                 Console.ReadLine();
             }
 
-            //Security API 
+            //SecurityProfile API 
             else if (i == "3")
             {
                 Console.WriteLine(@"Please select the SecurityProfile Method You want to Proceed: 
@@ -158,6 +167,95 @@ namespace icAPIConsole
                 }
 
             }
+            //Security Coupon API 
+            else if (i == "6")
+            {
+                Console.WriteLine(@"Please select the Security Coupon Method You want to Proceed: 
+                 A.Get Security Coupon
+                 B.Post Security Coupon
+                 "
+   );
+                Console.Write("> ");
+                String? SPMethod = Console.ReadLine();
+
+                if (SPMethod == "B")
+                {
+                    MainPostSecurityCoupon().GetAwaiter().GetResult();
+                    Console.ReadLine();
+
+                }
+                else if (SPMethod == "A")
+                {
+                    MainGetSecurityCoupon(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Select Right option");
+                }
+
+
+            }
+
+            //Security Factor API 
+            else if (i == "7")
+            {
+                Console.WriteLine(@"Please select the Security Factor Method You want to Proceed: 
+                 A.Get Security Factor
+                 B.Post Security Factor
+                 "
+   );
+                Console.Write("> ");
+                String? SPMethod = Console.ReadLine();
+
+                if (SPMethod == "B")
+                {
+                    MainPostSecurityFactor().GetAwaiter().GetResult();
+                    Console.ReadLine();
+
+                }
+                else if (SPMethod == "A")
+                {
+                    MainGetSecurityFactor(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Select Right option");
+                }
+
+
+            }
+
+            //Security Coupon API 
+            else if (i == "8")
+            {
+                Console.WriteLine(@"Please select the Security PrincipleFactor Method You want to Proceed: 
+                 A.Get Security PrincipleFactor
+                 B.Post Security PrincipleFactor
+                 "
+   );
+                Console.Write("> ");
+                String? SPMethod = Console.ReadLine();
+
+                if (SPMethod == "B")
+                {
+                    MainPostSecurityPrincipleFactor().GetAwaiter().GetResult();
+                    Console.ReadLine();
+
+                }
+                else if (SPMethod == "A")
+                {
+                    MainGetSecurityPrincipleFactor(args).GetAwaiter().GetResult();
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Select Right option");
+                }
+
+
+            }
             else
             {
                 Console.WriteLine("Not correct API was selected!");
@@ -165,7 +263,7 @@ namespace icAPIConsole
 
         }
 
-
+        #region "Transaction API"
         /*1.Transaction function  */
         //Transaction Cancel API Function
         static async Task MainCancelTrans(string[] args)
@@ -188,6 +286,14 @@ namespace icAPIConsole
             await TransactionAPIEndPoints.CancelAllTransaction();
         }
 
+        static async Task MainPostTrans(string[] args)
+        {
+
+            await TransactionAPIEndPoints.PostTransaction();
+        }
+        #endregion "Transaction API"
+
+        #region "Activity API"
         /*2. Activity function  */
         //Activity Get API Function
         static async Task MainGetAct(string[] args)
@@ -196,6 +302,9 @@ namespace icAPIConsole
             await ActivityAPIEndPoints.GetActivity();
         }
 
+        #endregion "Activity API"
+
+        #region "Security API"
         /*3. Security function  */
         //SecuirtyProfile Get API Function
         static async Task MainGetSecurityProfile(string[] args)
@@ -210,6 +319,11 @@ namespace icAPIConsole
 
             await SecurityProfileAPIEndPoints.LoadSecurityProfile(a);
         }
+
+        #endregion "Security API"
+
+
+        #region "Customer API"
 
         /*4. Customer Account function  */
         //Customer Account Get API Function
@@ -233,7 +347,9 @@ namespace icAPIConsole
             await CustomerAccountAPIEndPoints.UpdateCustomerAccount();
         }
 
+        #endregion "Customer API"
 
+        #region "EOD API"
         /*5. EOD function  */
         //EODCash Get API Function
         static async Task MainGetEODCash(string[] args)
@@ -248,6 +364,53 @@ namespace icAPIConsole
 
             await EODAPIEndPoints.EODPositionGetRequest();
         }
+
+        #endregion "EOD API"
+
+        #region "Security Coupon API"
+        static async Task MainGetSecurityCoupon(string[] args)
+        {
+
+            await SecurityCouponAPIEndPoints.GetSecurityCoupon();
+        }
+
+        //LoadSecurityProfileRequest....
+        static async Task MainPostSecurityCoupon( )
+        {
+
+            await SecurityCouponAPIEndPoints.PostSecurityCoupon();
+        }
+        #endregion "Security Coupon API"
+
+        #region "Security Factor API"
+        static async Task MainGetSecurityFactor(string[] args)
+        {
+
+            await SecurityFactorAPIEndPoints.GetSecurityPrincipleFactor();
+        }
+
+        //LoadSecurityProfileRequest....
+        static async Task MainPostSecurityFactor()
+        {
+
+            await SecurityFactorAPIEndPoints.PostSecurityFactor();
+        }
+        #endregion "Security Factor API"
+
+        #region "Security Principle Factor API"
+        static async Task MainGetSecurityPrincipleFactor(string[] args)
+        {
+
+            await SecurityPrincipleFactorAPIEndPoints.GetSecurityPrincipleFactor();
+        }
+
+        //LoadSecurityProfileRequest....
+        static async Task MainPostSecurityPrincipleFactor()
+        {
+
+            await SecurityPrincipleFactorAPIEndPoints.PostSecurityPrincipleFactor();
+        }
+        #endregion "Security Principle Factor API"
 
 
     }

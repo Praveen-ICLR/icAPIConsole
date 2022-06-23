@@ -514,7 +514,7 @@ namespace icAPIConsole.APIEndPoints
 
 
                 var dataAsString = JsonConvert.SerializeObject(secuirtyProfileLoadRequest);
-                var dataContent = new StringContent(dataAsString, Encoding.UTF8, "application/json");
+                var dataContent = new StringContent("[" + dataAsString + "]", Encoding.UTF8, "application/json");
                 if (I == "C")
                 {
                     HttpResponseMessage response = await client.PutAsync(config.BASEURL() + "/SecurityProfile", dataContent);

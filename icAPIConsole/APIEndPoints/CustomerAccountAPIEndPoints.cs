@@ -1102,7 +1102,7 @@ namespace icAPIConsole.APIEndPoints
 
                 var dataAsString = JsonConvert.SerializeObject(customerAccountLoadRequest);
                 Console.WriteLine(dataAsString);
-                var dataContent = new StringContent(dataAsString, Encoding.UTF8, "application/json");
+                var dataContent = new StringContent("[" + dataAsString + "]", Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(config.BASEURL() + "/CustomerAccounts", dataContent);
 
                 if (response.IsSuccessStatusCode)
@@ -2153,7 +2153,7 @@ namespace icAPIConsole.APIEndPoints
 
                 var dataAsString = JsonConvert.SerializeObject(customerAccountLoadRequest);
                 Console.WriteLine(dataAsString);
-                var dataContent = new StringContent(dataAsString, Encoding.UTF8, "application/json");
+                var dataContent = new StringContent("[" + dataAsString + "]", Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PutAsync(config.BASEURL() + "/CustomerAccounts", dataContent);
 
                 if (response.IsSuccessStatusCode)
